@@ -1,20 +1,25 @@
-import { client } from "@/sanity/lib/client";
 import React from "react";
 import { Oswald } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { getImprint } from "@/sanity/lib/query";
+import { ImprintType } from "@/types";
 
 const oswald = Oswald({ subsets: ["latin"] });
 
 export const revalidate = 5;
+
 const ImprintPage = async () => {
-  const data = await client.fetch(`*[_type == "imprint" ]`);
+  const data: ImprintType[] = await getImprint();
   if (!data) {
     return null;
   }
-
   return (
     <div className="maincol flex flex-col text-center items-center justify-center gap-8 py-14">
-      <span className={cn("text-5xl uppercase tracking-tighter", oswald.className)}>Imprint</span>
+      <span
+        className={cn("text-5xl uppercase tracking-tighter", oswald.className)}
+      >
+        Imprint
+      </span>
 
       <div className="flex flex-col gap-8 text-muted-foreground font-light tracking-tight">
         <div className="flex flex-col">

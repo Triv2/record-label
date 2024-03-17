@@ -1,7 +1,7 @@
-import {defineField, defineType} from 'sanity'
+import {defineField} from 'sanity'
 import { UserIcon } from '@sanity/icons'
 
-export default defineType({
+const profile ={
   name: 'profile',
   title: 'Profile',
   type: 'document',
@@ -24,7 +24,6 @@ export default defineType({
       options: {
         hotspot: true,
       },
-      // @ts-ignore
       fields: [
         {
           name: 'alt',
@@ -41,4 +40,6 @@ export default defineType({
     
   ],
  
-})
+};
+
+export default profile;

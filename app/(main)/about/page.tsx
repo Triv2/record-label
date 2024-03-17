@@ -1,13 +1,13 @@
-import { client } from "@/sanity/lib/client";
 import AboutSection from "@/components/sections/about-section";
+import { getHeader, getProfiles } from "@/sanity/lib/query";
+import { ProfileType, HeaderType } from "@/types";
 
 export const revalidate = 5;
 
 const AboutPage = async () => {
-  const profileData = await client.fetch(`*[_type == "profile"]`);
-  const headerData = await client.fetch(
-    `*[_type == "header" && title == "About"]{musicVideo->{video, link, thumbnail},description}`
-  );
+  const profileData: ProfileType[] = await getProfiles();
+  const headerData: HeaderType[] = await getHeader("About");
+
   return <AboutSection profileData={profileData} headerData={headerData} />;
 };
 

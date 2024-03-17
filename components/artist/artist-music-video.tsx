@@ -2,19 +2,19 @@
 import VideoPlayer from "@/components/video-player";
 import { getSanityFileUrl } from "@/sanity/lib/fileUrl";
 
-interface HeroVideoProps {
+interface ArtistMusicVideoProps {
   videoUrl: string;
   video: any;
 }
 
-const HeroVideo = ({ videoUrl, video }: HeroVideoProps) => {
+const ArtistMusicVideo = ({
+  videoUrl,
+
+  video,
+}: ArtistMusicVideoProps) => {
   const fileUrl = getSanityFileUrl(video) || null;
   const newUrl = fileUrl.url;
 
-  return (
-    <div>
-      <VideoPlayer videoUrl={newUrl} videoLink={videoUrl} />
-    </div>
-  );
+  return <VideoPlayer videoUrl={newUrl} videoLink={videoUrl} />;
 };
-export default HeroVideo;
+export default ArtistMusicVideo;

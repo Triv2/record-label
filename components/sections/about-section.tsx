@@ -1,35 +1,49 @@
-"use client";
 
+import { Poppins } from "next/font/google";
 import About from "../about/about";
 import ProfileCardList from "../about/profile-card-list";
-import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 interface AboutSectionProps {
   profileData: any;
   headerData: any;
 }
-
+const font = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "700"],
+});
 const AboutSection = ({ profileData, headerData }: AboutSectionProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ type: "spring", duration: 1.5, bounce: 0.4 }}
-      className="maincol flex flex-col py-10 gap-20"
+    <div
+      className="flex flex-col py-[2rem] lg:pt-[3.75rem] gap-5 lg:gap-20 px-2 md:px-4 xl:px-[6.4rem]"
     >
-      <div className="uppercase tracking-tighter flex justify-between items-center text-muted-foreground">
-        <span>Who we are</span>
-        <span>Who we are</span>
-        <span>Who we are</span>
+      <div
+        className={cn(
+          "uppercase tracking-custom flex justify-between items-center text-muted-foreground dark:text-neutral-200  pt-[1rem] lg:pt-[5rem] border-t border-black dark:border-white",
+          font.className
+        )}
+      >
+        <span className="text-xxs lg:text-mlg">Who we are</span>
+        <span className=" text-xxs lg:text-mlg text-emerald-500 dark:text-emerald-200 font-bold">
+          Who we are
+        </span>
+        <span className="text-xxs lg:text-mlg">Who we are</span>
       </div>
       <About data={headerData} />
 
-      <div className="uppercase tracking-tighter flex justify-between items-center text-muted-foreground">
-        <span>Who we are</span>
-        <span>Our Team</span>
-        <span>Who we are</span>
+      <div
+        className={cn(
+          "uppercase tracking-custom flex justify-between items-center text-muted-foreground dark:text-neutral-200 pt-[1rem] lg:pt-[5rem] border-t border-black dark:border-white",
+          font.className
+        )}
+      >
+        <span className="text-xxs lg:text-mlg">Who we are</span>
+        <span className="text-xxs lg:text-mlg text-emerald-500 dark:text-emerald-200">
+          Our Team
+        </span>
+        <span className="text-xxs lg:text-mlg">Who we are</span>
       </div>
       <ProfileCardList data={profileData} />
-    </motion.div>
+    </div>
   );
 };
 export default AboutSection;

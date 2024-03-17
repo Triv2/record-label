@@ -2,49 +2,33 @@
 import React from "react";
 import ReactPlayer from "react-player";
 import { getSanityFileUrl } from "@/sanity/lib/fileUrl";
-
- 
+import Link from "next/link";
 
 interface HeroVideoPlayerProps {
   videoUrl: string;
-  video:any;
-
-  file?:boolean;
-
+  video: any;
 }
 
-const HeroVideoPlayer = ({ videoUrl,  video, file }: HeroVideoPlayerProps) => {
+const HeroVideoPlayer = ({ videoUrl, video }: HeroVideoPlayerProps) => {
   const [isMounted, setIsMounted] = React.useState(false);
+
   React.useEffect(() => {
     setIsMounted(true);
   }, []);
+
   if (!isMounted) {
     return null;
   }
-  let fileUrl;
- 
-  if (video) {
-    fileUrl = getSanityFileUrl(video) || null;
-  }
-
-
-  let newUrl = videoUrl;
-
-  if(file === true){
-    if (fileUrl) {
-      newUrl = fileUrl.url;
-    }
-  } 
-
-
+  const fileUrl = getSanityFileUrl(video) || null;
+  const newUrl = fileUrl.url;
 
   return (
-    <div className=" relative pt-[56.25%]  ">
-     
-        <ReactPlayer
+    <Link href={videoUrl} rel="noopener noreferrer" target="_blank">
+      <ReactPlayer
+        playsinline={true}
         playing={true}
         autoPlay={true}
-        className=" absolute top-0 left-0 "
+        className=" h-full w-full object-cover"
         width="100%"
         height="100%"
         url={newUrl}
@@ -54,9 +38,9 @@ const HeroVideoPlayer = ({ videoUrl,  video, file }: HeroVideoPlayerProps) => {
         loop={true}
         muted={true}
       />
-     
+
       <source src={newUrl} type="video/mp4" />
-    </div>
+    </Link>
   );
 };
 

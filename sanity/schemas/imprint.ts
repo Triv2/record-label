@@ -1,7 +1,7 @@
-import { defineField, defineType } from "sanity";
+import { defineField } from "sanity";
 import { DocumentPdfIcon} from "@sanity/icons";
 
-export default defineType({
+const imprint= {
   name: "imprint",
   title: "Imprint",
   type: "document",
@@ -65,4 +65,6 @@ export default defineType({
       type: "datetime",
     }),
   ],
-});
+};
+
+export default imprint;

@@ -1,9 +1,8 @@
+import { ProfileType } from "@/types";
 import ProfileCard from "./profile-card";
-import profile from "@/sanity/schemas/about/profile";
 
-type user = typeof profile;
 interface ProfileCardListProps {
-  data: any;
+  data: ProfileType[];
 }
 
 const ProfileCardList = ({ data }: ProfileCardListProps) => {
@@ -11,10 +10,9 @@ const ProfileCardList = ({ data }: ProfileCardListProps) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {data &&
-        data.map((item: user) => (
+        data.map((item) => (
           <ProfileCard
             key={item.title}
-            // @ts-ignore
             image={item.image}
             title={item.title as string}
             name={item.name}

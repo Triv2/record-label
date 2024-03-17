@@ -1,33 +1,38 @@
-"use client";
-import ArtistDetails from "@/components/artists/artist-details";
-import ArtistVideos from "@/components/artists/artist-videos";
-import ArtistReleases from "@/components/artists/artist-releases";
-import { motion } from "framer-motion";
+
+import ArtistDetails from "@/components/artist/artist-details";
+import ArtistVideos from "@/components/artist/artist-videos";
+import ArtistReleases from "@/components/artist/artist-releases";
+
+import { Poppins } from "next/font/google";
+import { cn } from "@/lib/utils";
 
 interface ArtistSectionProps {
   artistDetailsData: any;
   artistVideosData: any;
   artistReleasesData: any;
 }
+const font = Poppins({
+  subsets: ["latin"],
+  weight: ["300","700"],
+});
 
 const ArtistSection = ({ artistDetailsData, artistReleasesData, artistVideosData }: ArtistSectionProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ type: "spring", duration: 1.5, bounce: 0.4 }}
-      className="maincol flex flex-col py-10 gap-20"
+    <div
+      
+      className="flex flex-col py-[2rem] lg:pt-[3.75rem]  px-2 md:px-4 xl:px-[6.4rem]"
     >
-      <div className="uppercase tracking-tighter flex justify-between items-center text-muted-foreground">
-        <span>OUR ARTISTS</span>
-        <span className="hidden md:flex">OUR ARTISTS</span>
-        <span className="hidden md:flex">OUR ARTISTS</span>
+      <div className={cn("uppercase tracking-custom flex justify-between items-center text-muted-foreground  border-t py-[1rem] lg:py-[5rem] border-black dark:border-white",font.className)}>
+        <span className="text-xxs lg:text-mlg">OUR ARTISTS</span>
+        <span className="text-xxs lg:text-mlg text-emerald-500 dark:text-emerald-200">OUR ARTISTS</span>
+        <span className="text-xxs lg:text-mlg">OUR ARTISTS</span>
       </div>
 
-      <ArtistDetails data={artistDetailsData} />
+      <ArtistDetails data={artistDetailsData}  />
       <ArtistVideos data={artistVideosData} />
       <ArtistReleases data={artistReleasesData} />
-    </motion.div>
+     
+    </div>
   );
 };
 export default ArtistSection;

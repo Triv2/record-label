@@ -1,7 +1,7 @@
-import {defineField, defineType} from 'sanity'
+import {defineField} from 'sanity'
 import { PlayIcon } from '@sanity/icons'
 
-export default defineType({
+const musicVideo ={
   name: 'musicVideo',
   title: 'Music Video',
   type: 'document',
@@ -20,7 +20,6 @@ export default defineType({
       options: {
         hotspot: true,
       },
-      // @ts-ignore
       fields: [
         {
           name: 'alt',
@@ -50,10 +49,11 @@ export default defineType({
       name: 'artist',
       title: 'Artist',
       type: 'array',
-      // @ts-ignore
       of: [{type: 'reference', to: {type: 'artist'}}],
     }),
 
   ],
   
-})
+};
+
+export default musicVideo;

@@ -1,7 +1,7 @@
-import {defineField, defineType} from 'sanity'
+import {defineField} from 'sanity'
 import {PresentationIcon } from '@sanity/icons'
 
-export default defineType({
+const artist ={
   name: 'artist',
   title: 'Artist',
   type: 'document',
@@ -20,7 +20,7 @@ export default defineType({
       options: {
         hotspot: true,
       },
-      // @ts-ignore
+ 
       fields: [
         {
           name: 'alt',
@@ -40,21 +40,18 @@ export default defineType({
       name: 'socials',
       title: 'Socials - ADD AFTER PUBLISHING ARTIST',
       type: 'array',
-      // @ts-ignore
       of: [{type: 'reference', to: {type: 'social'}}],
     }),
     defineField({
       name: 'musicVideos',
       title: 'Music Videos - ADD AFTER PUBLISHING ARTIST',
       type: 'array',
-      // @ts-ignore
       of: [{type: 'reference', to: {type: 'musicVideo'}}],
     }),
     defineField({
       name: 'releases',
       title: 'Releases - ADD AFTER PUBLISHING ARTIST',
       type: 'array',
-      // @ts-ignore
       of: [{type: 'reference', to: {type: 'release'}}],
     }),
     defineField({
@@ -64,4 +61,6 @@ export default defineType({
     }),
   ],
   
-})
+};
+
+export default artist;

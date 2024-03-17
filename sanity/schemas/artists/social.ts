@@ -1,6 +1,7 @@
-import { defineField, defineType } from "sanity";
+import { defineField} from "sanity";
 import { ShareIcon } from "@sanity/icons";
-export default defineType({
+
+const social ={
   name: "social",
   title: "Social",
   type: "document",
@@ -15,7 +16,6 @@ export default defineType({
       name: "artist",
       title: "Artist",
       type: "reference",
-      // @ts-ignore
       to: { type: "artist" },
     }),
    
@@ -53,4 +53,6 @@ export default defineType({
       socialLink: "spotify",
     }
   
-});
+};
+
+export default social;

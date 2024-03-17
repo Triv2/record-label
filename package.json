@@ -1,5 +1,5 @@
 {
-  "name": "soulpunx",
+  "name": "recordlabel",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -27,7 +27,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "embla-carousel-react": "^8.0.0-rc20",
-    "framer-motion": "^11.0.3",
+   
     "lucide-react": "^0.315.0",
     "next": "14.1.0",
     "next-sanity": "^7.0.12",

@@ -1,19 +1,16 @@
-
 import React from "react";
-import MusicVideo from "./music-video";
+import MusicVideo from "../home/our-work/music-video";
 import { MusicVideoType } from "@/types";
 
-
-
-interface OurWorkProps {
+interface MediaVideosProps {
   data: MusicVideoType[];
 }
 
-const OurWork = ({ data }: OurWorkProps) => {
+const MediaVideos = ({ data }: MediaVideosProps) => {
   if (!data) return null;
 
   let dataSet1: MusicVideoType[] = [];
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 13; i++) {
     dataSet1.push(data[i]);
   }
 
@@ -52,4 +49,4 @@ const OurWork = ({ data }: OurWorkProps) => {
   );
 };
 
-export default OurWork;
+export default MediaVideos;

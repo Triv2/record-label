@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className="maincol flex items-center justify-between py-6">
         <div className="flex items-center gap-8">
           <Link href="/">
-            <h1 className="font-bold tracking-tighter uppercase text-xl">SoulPunx</h1>
+            <h1 className="font-bold tracking-tighter uppercase text-xl">Record Label</h1>
           </Link>
         </div>
 

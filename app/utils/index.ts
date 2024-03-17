@@ -8,8 +8,8 @@ export const routes = [
     href: "/artists",
   },
   {
-    label: "Film",
-    href: "/film",
+    label: "Media",
+    href: "/media",
   },
   {
     label: "About",

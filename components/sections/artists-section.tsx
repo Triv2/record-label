@@ -1,30 +1,37 @@
-"use client";
 import ArtistList from "@/components/artists/artist-list";
-import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+import { Poppins } from "next/font/google";
 
 export const revalidate = 5;
-
+const font = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "700"],
+});
 interface ArtistsSectionProps {
   artistsData: any;
 }
 
 const ArtistsSection = ({ artistsData }: ArtistsSectionProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ type: "spring", duration: 1.5, bounce: 0.4 }}
+    <div
+      className="flex flex-col py-[2rem] lg:pt-[3.75rem] gap-5 lg:gap-20 px-2 md:px-4 xl:px-[6.4rem]"
     >
-      <div className="maincol flex flex-col gap-8 py-10 md:h-screen">
-        <div className="uppercase tracking-tighter flex justify-between items-center text-muted-foreground">
-          <span>Our Artists</span>
-          <span>Our Artists</span>
-          <span>Our Artists</span>
-        </div>
-
-        <ArtistList data={artistsData} />
+      <div
+        className={cn(
+          "uppercase tracking-custom flex justify-between items-center text-muted-foreground dark:text-neutral-200 pt-[1rem] lg:pt-[5rem] border-t border-black dark:border-white",
+          font.className
+        )}
+      >
+        <span className="text-xxs lg:text-mlg">Our Artists</span>
+        <span className="text-xxs lg:text-mlg text-emerald-500 dark:text-emerald-200">
+          Our Artists
+        </span>
+        <span className="text-xxs lg:text-mlg">Our Artists</span>
       </div>
-    </motion.div>
+
+      <ArtistList data={artistsData} />
+    </div>
   );
 };
 

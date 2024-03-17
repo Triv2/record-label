@@ -17,20 +17,20 @@ interface ImageContainerProps {
 export default function ImageContainer({
   image,
   alt = "Cover image",
-  width = 500,
-  height = 500,
+  width = 50,
+  height = 50,
   size = "80vw",
   classesWrapper,
   imageClassName,
   priority=false,
   ...props
 }: ImageContainerProps) {
-  const imageUrl = image && urlForImage(image)?.height(height).width(width).fit("crop").url();
+  const imageUrl = image && urlForImage(image)?.fit("crop").url();
 
   return (
     <div className={`${classesWrapper}`} data-sanity={props["data-sanity"]}>
       {imageUrl && (
-        <Image className={cn("h-full ", imageClassName)} alt={alt} width={width} height={height} sizes={size} src={imageUrl} priority={priority} quality="50"  />
+        <Image className={cn("h-full w-full ", imageClassName)} alt={alt} width={width} height={height} sizes={size} src={imageUrl} priority={priority} quality="50"  />
       )}
     </div>
   );

@@ -1,10 +1,11 @@
 import ArtistsSection from "@/components/sections/artists-section";
-import { client } from "@/sanity/lib/client";
+import { getArtists } from "@/sanity/lib/query";
+import { ArtistType } from "@/types";
 
 export const revalidate = 5;
 
 const ArtistsPage = async () => {
-  const artistsData = await client.fetch(`*[_type == "artist"]`);
+  const artistsData: ArtistType[] = await getArtists();
   return <ArtistsSection artistsData={artistsData} />;
 };
 

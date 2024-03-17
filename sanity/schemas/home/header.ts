@@ -1,6 +1,7 @@
-import {defineField, defineType} from 'sanity'
+import {defineField} from 'sanity'
 import { SplitHorizontalIcon } from '@sanity/icons'
-export default defineType({
+
+const header ={
   name: 'header',
   title: 'Header',
   type: 'document',
@@ -16,31 +17,9 @@ export default defineType({
       name: 'musicVideo',
       title: 'Music Video',
       type: 'reference',
-      // @ts-ignore
       to: {type: 'musicVideo'},
     }),
-    defineField({
-      name: 'thumbnail',
-      title: 'Thumbnail',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      // @ts-ignore
-      fields: [
-        {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative Text',
-        }
-      ]
-    }),
-    defineField({
-      name: 'link',
-      title: 'Link',
-      type: 'string',
-    }),
-   
+
     defineField({
       name: "description",
       title: "Description",
@@ -52,4 +31,7 @@ export default defineType({
       type: 'datetime',
     }),
   ],
-})
+};
+
+
+export default header;
