@@ -1,5 +1,5 @@
-# Soulpunx Website Guide
-> This is a guide on how to use the Soulpunx web application.
+#  Website Guide
+> This is a guide on how to use the web application.
 <img src="https://github.com/Triv2/soulpunx/assets/126743500/055fbe8c-aea2-4bcf-939a-e11fd8c6f422" width="100%" height="50%" alt="soulpunx-header"/>
 
 
